@@ -10,6 +10,7 @@ Android动画可以分为三种
     - 属性动画通过动态地改变对象的属性从而达到动画效果
     - 属性动画为API11的新属性，在低版本中无法直接使用属性动画，需要通过兼容库来支持
 ## 1 View动画
+### 1 四种View动画
 View动画的作用对象是View，支持四种动画效果，分别是平移动画、缩放动画、旋转动画和透明度动画
 - 1 平移动画
     - 1 标签: translate
@@ -68,5 +69,34 @@ View动画的作用对象是View，支持四种动画效果，分别是平移动
     alphaAnimation.setDuration(300);
     mView.setAnimation(alphaAnimation)
     ```
+### 2 iew动画的特殊使用场景
+- 1 LayoutAnimation 
+LayoutAnimation作用于ViewGroup,为ViewGroup指定一个动画，这样当它的子元素出场时都会具有这种动画效果。这种效果常常用于ListView上（ListView的每个item都以一定的动画形式出现）。    
+    
+    - 1 定义LayoutAnimation
+    
+    ```
+    <LayoutAnimation
+        xmls="http://schemas.android/com/apk/res/android"
+        android:delay="0.5" 
+        android:animationOrder="normal"
+        android:animation="@anim/anim_item"
+        />
+    ```
+    android:delay 表示子元素开始动画的延迟时间，如子元素入场动画的时间周期为300ms， 则每个子元素要延迟150ms才能播放入场动画
+    
+    android:animationOrder 表示子元素动画的顺序，normal:顺序播放(排在前面的子元素先开始播放入场动画)；reverse:逆向播放；random:随即播放入场动画 
+    
+    android:animation 为子元素指定入场动画
+    
+    - 2 为ViewGroup指定android:layoutAnimation属性
+    ```
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layoutAnimation="@anim/anim_layout"
+        />
+    ```
+      
 ## 2 属性动画    
 
