@@ -69,7 +69,7 @@ View动画的作用对象是View，支持四种动画效果，分别是平移动
     alphaAnimation.setDuration(300);
     mView.setAnimation(alphaAnimation)
     ```
-### 2 iew动画的特殊使用场景
+### 2 View动画的特殊使用场景
 - 1 LayoutAnimation 
 LayoutAnimation作用于ViewGroup,为ViewGroup指定一个动画，这样当它的子元素出场时都会具有这种动画效果。这种效果常常用于ListView上（ListView的每个item都以一定的动画形式出现）。    
     
