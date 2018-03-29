@@ -97,6 +97,14 @@ LayoutAnimation作用于ViewGroup,为ViewGroup指定一个动画，这样当它�
         android:layoutAnimation="@anim/anim_layout"
         />
     ```
-      
+- 2 Activity的切换效果
+    - 1 Activity有默认的切换效果，但是这个效果我们可以自己去定义的。主要用到
+    ```
+    overridePendingTransition(enterAnim, exitAnim)
+    // enterAnim Activity被大开始时，所需的动画资源id
+    // exitAnim  Activity被暂停时，所需要的动画资源id
+    // 这个方法需要在startActivity(int)或者finish()方法之后才能调用
+    ```
+    - 2 Fragment也有切换动画，但是时在API11中才新引入的类
 ## 2 属性动画    
 
